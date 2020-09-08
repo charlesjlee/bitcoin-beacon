@@ -1,0 +1,31 @@
+name: CI
+on: push
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+
+      - name: Update theme
+        run: git submodule update --init --recursive
+
+      - name: Setup hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "0.70.0"
+
+      - name: Build
+        # run: hugo --minify
+        run: hugo
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{secrets.ACTIONS_DEPLOY_KEY}}
+          external_repository: charlesjlee/hugo-github-pages-actions-demo
+          publish_dir: ./public
+          user_name: Charles Lee
+          user_email: charleslee592@gmail.com
+          publish_branch: gh-pages
+          # cname: ﻿www.charlesjlee.com
