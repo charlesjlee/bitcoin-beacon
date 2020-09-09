@@ -13,23 +13,14 @@ jobs:
       with:
         python-version: '3.8' 
 
-    - name: Display Python version
-      run: python -c "import sys; print(sys.version)"
+    # - name: Display Python version
+    #   run: python -c "import sys; print(sys.version)"
 
     - name: Install dependencies
-      run: pip install datetime requests
+      run: pip install datetime requests hmac
         
-
-    - name: Display Python version
-      run: python ./scripts/update.py
+    - name: Compute and over-write random.json
+      run: python ./data/update.py
       # run: python ".\$GITHUB_WORKSPACE\scripts\update.py"
 
-      # - name: Deploy
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     deploy_key: ${{secrets.ACTIONS_DEPLOY_KEY}}
-      #     external_repository: charlesjlee/bitcoin-beacon
-      #     publish_dir: ./public
-      #     user_name: Charles Lee
-      #     user_email: charleslee592@gmail.com
-      #     publish_branch: gh-pages
+
