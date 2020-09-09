@@ -20,7 +20,8 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install flake8 pytest
-        pip install datetime requests hmac json hashlib
+        pip install datetime requests hmac
+        
         # if [ -f ./scripts/requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Display Python version
