@@ -18,7 +18,6 @@ jobs:
     #   run: ./scripts/update.py"
 
     - name: Display Python version
-      uses: actions/setup-python@v2
       with:
         python-version: '3.x' 
       run: sudo python ./scripts/update.py
