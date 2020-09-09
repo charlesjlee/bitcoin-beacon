@@ -1,5 +1,5 @@
 baseURL = "/"
 languageCode = "en-us"
 title = "My New Hugo Site"
-theme = "ananke"
+theme = "whisper"
 relativeURLs = true
