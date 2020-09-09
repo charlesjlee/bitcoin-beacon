@@ -1,0 +1,4 @@
+{{ $bcperblock := getJSON "https://blockchain.info/q/bcperblock" }}
+{{ $price := getJSON "https://blockchain.info/q/24hrprice" }}
+{{ $reward := mul $bcperblock $price }}
+${{mul 2 $reward | lang.NumFmt 2}}
