@@ -1,0 +1,29 @@
+name: update
+schedule:
+  # shortest interval is 5 min, but can try 1 min
+  - cron:  '*/5 * * * *'
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v2
+      with:
+        # Semantic version range syntax or exact version of a Python version
+        python-version: '3.x' 
+        # Optional - x64 or x86 architecture, defaults to x64
+        architecture: 'x64' 
+    # You can test your matrix by printing the current Python version
+    - name: Display Python version
+      run: python -c "import sys; print(sys.version)"
+
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     deploy_key: ${{secrets.ACTIONS_DEPLOY_KEY}}
+      #     external_repository: charlesjlee/bitcoin-beacon
+      #     publish_dir: ./public
+      #     user_name: Charles Lee
+      #     user_email: charleslee592@gmail.com
+      #     publish_branch: gh-pages
