@@ -1,8 +1,8 @@
-name: update
+name: update random.json
 on:
   schedule:
     # shortest interval is 5 min, but can try 1 min
-    - cron:  '*/5 * * * *'
+    - cron:  '*/1 * * * *'
 jobs:
   update:
     runs-on: ubuntu-latest
