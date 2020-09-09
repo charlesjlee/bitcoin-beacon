@@ -19,11 +19,11 @@ jobs:
     - name: Compute and over-write random.json
       run: python ./data/update.py
 
-    - name: Commit changes
-    - run: |
-        date > generated.txt
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git add .
-        git commit -m "Committing updated random.json"
-        git push
+    # - name: Commit changes
+    # - run: |
+    #     date > generated.txt
+    #     git config user.name github-actions
+    #     git config user.email github-actions@github.com
+    #     git add .
+    #     git commit -m "Committing updated random.json"
+    #     git push
