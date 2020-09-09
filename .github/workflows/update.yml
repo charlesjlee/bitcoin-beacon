@@ -17,8 +17,6 @@ jobs:
       run: python -c "import sys; print(sys.version)"
 
     - name: Display Python version
-      with:
-        python-version: '3.x' 
       run: sudo python ./scripts/update.py
       # run: python ".\$GITHUB_WORKSPACE\scripts\update.py"
 
