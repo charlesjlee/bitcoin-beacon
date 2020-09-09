@@ -13,9 +13,8 @@ jobs:
       with:
         python-version: '3.x' 
 
-    # - name: Display Python version
-    #   # run: python -c "import sys; print(sys.version)"
-    #   run: ./scripts/update.py"
+    - name: Display Python version
+      run: python -c "import sys; print(sys.version)"
 
     - name: Display Python version
       with:
