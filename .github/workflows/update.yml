@@ -1,8 +1,7 @@
 name: update random.json
 on:
   schedule:
-    # shortest interval is 5 min, but can try 1 min
-    - cron:  '*/1 * * * *'
+    - cron:  '*/5 * * * *'
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -11,10 +10,7 @@ jobs:
     - name: Set up Python 3.x
       uses: actions/setup-python@v2
       with:
-        # Semantic version range syntax or exact version of a Python version
         python-version: '3.x' 
-        # Optional - x64 or x86 architecture, defaults to x64
-        architecture: 'x64'
     # You can test your matrix by printing the current Python version
     - name: Display Python version
       run: python -c "import sys; print(sys.version)"
