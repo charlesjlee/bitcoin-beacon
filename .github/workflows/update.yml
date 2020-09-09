@@ -11,7 +11,7 @@ jobs:
     - name: Set up Python 3.x
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x' 
+        python-version: '3.8' 
 
     - name: Display Python version
       run: python -c "import sys; print(sys.version)"
@@ -20,7 +20,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install flake8 pytest
-        pip install datetime requests binascii hmac math json hashlib
+        pip install datetime requests hmac math json hashlib
         # if [ -f ./scripts/requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Display Python version
