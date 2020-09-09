@@ -17,7 +17,7 @@ jobs:
       run: python -c "import sys; print(sys.version)"
 
     - name: Install dependencies
-      run: pip install datetime requests hmac
+      run: pip install datetime requests
         
 
     - name: Display Python version
