@@ -1,7 +1,8 @@
 name: update
-schedule:
-  # shortest interval is 5 min, but can try 1 min
-  - cron:  '*/5 * * * *'
+on:
+  schedule:
+    # shortest interval is 5 min, but can try 1 min
+    - cron:  '*/5 * * * *'
 jobs:
   update:
     runs-on: ubuntu-latest
