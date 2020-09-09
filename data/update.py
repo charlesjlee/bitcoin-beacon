@@ -97,8 +97,14 @@ extractorOutput = bin(int.from_bytes(extractorOutputBytes, 'big'))[2:].zfill(32)
 print(f"extractorOutput aka beacon output ({len(extractorOutput)} bits):\n{extractorOutput}")
 print(f"{int(extractorOutput,2)}")
 
-timestamp = datetime.utcfromtimestamp(int(latest_block_info['time'])).strftime('%Y-%m-%d %H:%M:%S')
-print(f"{timestamp=}")
-
-output = json.dumps({'timestamp':timestamp, 'extractorOutput':extractorOutput, 'blockNumber':latest_block_info['height']})
+output = json.dumps({
+    'block_hash': latest_block_hash,
+    'timestamp': datetime.utcfromtimestamp(int(latest_block_info['time'])).strftime('%Y-%m-%d %H:%M:%S'),
+    'random_binary': extractorOutput,
+    'random_int': int(extractorOutput,2),
+    'block':latest_block_info['height'],
+})
 print(f"{output=}")
+
+with open('random.json', 'w') as outfile:
+    json.dump(output, outfile)

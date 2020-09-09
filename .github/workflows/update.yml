@@ -13,14 +13,17 @@ jobs:
       with:
         python-version: '3.8' 
 
-    # - name: Display Python version
-    #   run: python -c "import sys; print(sys.version)"
-
     - name: Install dependencies
-      run: pip install datetime requests hmac
+      run: pip install datetime requests
         
     - name: Compute and over-write random.json
       run: python ./data/update.py
-      # run: python ".\$GITHUB_WORKSPACE\scripts\update.py"
 
-
+    - name: Commit changes
+    - run: |
+        date > generated.txt
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add .
+        git commit -m "Committing updated random.json"
+        git push
