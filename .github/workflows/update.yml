@@ -1,5 +1,4 @@
 name: update random.json
-# on: push
 on:
   schedule:
     - cron:  '*/5 * * * *'
@@ -30,11 +29,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # - name: Git checkout
-      #   uses: actions/checkout@v2
+      - name: Git checkout
+        uses: actions/checkout@v2
 
-      # - name: Update theme
-      #   run: git submodule update --init --recursive
+      - name: Update theme
+        run: git submodule update --init --recursive
 
       - name: Setup hugo
         uses: peaceiris/actions-hugo@v2
