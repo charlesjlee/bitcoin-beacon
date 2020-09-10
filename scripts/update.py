@@ -119,9 +119,9 @@ cwd = os.getcwd()
 print(f"{cwd=}")
 
 import os.path
-os.path.isfile("../data/random.json")
-os.path.isfile("./data/random.json")
-os.path.isfile("data/random.json")
+print(os.path.isfile("../data/random.json"))
+print(os.path.isfile("./data/random.json"))
+print(os.path.isfile("data/random.json"))
 
 with open('../data/random.json', 'w') as outfile:
     json.dump(data, outfile)
