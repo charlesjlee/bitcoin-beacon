@@ -27,7 +27,7 @@ summaryLength = 30
   google_analytics_id=""
   homepage_button_link = '/docs'
   homepage_button_text = 'Read The Docs'
-  homepage_intro = 'Current 32-bit random number extracted from the latest Bitcoin block header'
+  homepage_intro = 'Current random 32 bits extracted from the Bitcoin block header'
   homepage_image = '/images/terminal.gif'
 
   ## You can enable to add anchor links to header elements

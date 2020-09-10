@@ -1,6 +1,9 @@
 '''
 API doc
 https://blockchain.info/q/
+
+or
+https://rest.bitcoin.com/
 '''
 
 from datetime import datetime
@@ -97,14 +100,15 @@ extractorOutput = bin(int.from_bytes(extractorOutputBytes, 'big'))[2:].zfill(32)
 print(f"extractorOutput aka beacon output ({len(extractorOutput)} bits):\n{extractorOutput}")
 print(f"{int(extractorOutput,2)}")
 
-output = json.dumps({
+data = {
     'block_hash': latest_block_hash,
     'timestamp': datetime.utcfromtimestamp(int(latest_block_info['time'])).strftime('%Y-%m-%d %H:%M:%S'),
     'random_binary': extractorOutput,
     'random_int': int(extractorOutput,2),
     'block':latest_block_info['height'],
-})
-print(f"{output=}")
+}
 
-with open('random.json', 'w') as outfile:
-    json.dump(output, outfile)
+print(f"json: {json.dumps(data)}")
+
+with open('../data/random.json', 'w') as outfile:
+    json.dump(data, outfile)
