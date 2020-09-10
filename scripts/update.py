@@ -112,3 +112,6 @@ print(f"json: {json.dumps(data)}")
 
 with open('data/random.json', 'w') as outfile:
     json.dump(data, outfile)
+
+with open('static/api/v1/random.json', 'w') as outfile:
+    json.dump(data, outfile)
