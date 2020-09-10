@@ -26,3 +26,31 @@ jobs:
         git add .
         git commit -m "Committing updated random.json"
         git push
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # - name: Git checkout
+      #   uses: actions/checkout@v2
+
+      # - name: Update theme
+      #   run: git submodule update --init --recursive
+
+      - name: Setup hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "latest"
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{secrets.ACTIONS_DEPLOY_KEY}}
+          external_repository: charlesjlee/bitcoin-beacon
+          publish_dir: ./public
+          user_name: Charles Lee
+          user_email: charleslee592@gmail.com
+          publish_branch: gh-pages
