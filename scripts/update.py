@@ -110,5 +110,13 @@ data = {
 
 print(f"json: {json.dumps(data)}")
 
+import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
+print(f"{dir_path=}")
+
+import os
+cwd = os.getcwd()
+print(f"{cwd=}")
+
 with open('../data/random.json', 'w') as outfile:
     json.dump(data, outfile)
