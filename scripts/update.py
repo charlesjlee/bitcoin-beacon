@@ -2,6 +2,9 @@
 API doc
 https://blockchain.info/q/
 
+Block header manipulation code from https://en.bitcoin.it/wiki/Block_hashing_algorithm
+HDKF extractor (an HMAC-based function) code from https://en.wikipedia.org/wiki/HKDF
+
 or
 https://rest.bitcoin.com/
 '''
