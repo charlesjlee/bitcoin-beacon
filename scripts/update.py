@@ -4,9 +4,6 @@ https://blockchain.info/q/
 
 Block header manipulation code from https://en.bitcoin.it/wiki/Block_hashing_algorithm
 HDKF extractor (an HMAC-based function) code from https://en.wikipedia.org/wiki/HKDF
-
-or
-https://rest.bitcoin.com/
 '''
 
 from datetime import datetime
@@ -16,36 +13,42 @@ import hashlib
 import hmac
 from math import ceil
 import json
+from retrying import retry
 hash_len = 32
 
-
+@retry(stop_max_attempt_number=7,wait_exponential_multiplier=1000, wait_exponential_max=10000)
 def latest_block_hash():
     """Return the latest block hash."""
     r = requests.get('https://blockchain.info/q/latesthash')
     
     if r.status_code != 200:
-        # throw error
-        pass
+        err_string = f"latest_block_hash failed with {r} because {r.reason}"
+        print(err_string)
+        raise Exception(err_string)
     
     return r.text
 
+@retry(stop_max_attempt_number=7,wait_exponential_multiplier=1000, wait_exponential_max=10000)
 def block_header_raw(block_hash):
     """Return a raw block header given its hash."""
     r = requests.get(f"https://blockchain.info/block/{block_hash}?format=hex")
     
     if r.status_code != 200:
-        # throw error
-        pass
+        err_string = f"block_header_raw failed on block_hash={block_hash} with {r} because {r.reason}"
+        print(err_string)
+        raise Exception(err_string)
     
     return r.text[:160]
 
+@retry(stop_max_attempt_number=7,wait_exponential_multiplier=1000, wait_exponential_max=10000)
 def block_info(block_hash):
     """Return block info given its hash."""
     r = requests.get(f"https://blockchain.info/rawblock/{block_hash}")
     
     if r.status_code != 200:
-        # throw error
-        pass
+        err_string = f"block_info failed on block_hash={block_hash} with {r} because {r.reason}"
+        print(err_string)
+        raise Exception(err_string)
     
     return r.json()
 
