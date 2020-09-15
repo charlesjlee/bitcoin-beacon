@@ -9,15 +9,12 @@ By applying an entropy extraction function to the bitwise $OR$ of the block head
 
 $$Beacon(t) = Ext_k(B_t||H(B_t))$$
 
-The hash of the block header is included to make it impossible for malicious miners to exclusively try hash solutions that produce a certain beacon output. Since the hash of the header is unpredictable, malicious miners must mine normally: finding valid hash solutions, computing the beacon output, then deciding whether to withhold the block.
+The hash of the block header is included to make it impossible for malicious miners to exclusively try solutions that produce a certain beacon output. Since the hash of the header is unpredictable, malicious miners must mine normally: finding valid solutions, computing the beacon output, then deciding whether to withhold the block.
 
 ### Why 32 bits?
-From 68 bits of min-entropy, originating from the current difficulty $d$, we can extract 32 uniform bits:
+From 68 bits of min-entropy, originating from the current difficulty $d$, we can extract 32 uniform bits. This is summarized in **Table 1** from the paper:
 
 ![Table 1](/img/capture.png)
-
-### Does the output actually look random?
-Yes, see [analysis](../analysis)
 
 ### How much would it cost to attack this beacon?
 An attack on the beacon is equivalent to manipulating the block hash of the most recent block. Malicious miners can withhold valid blocks if they would result in an unfavorable beacon output. The paper models a *strong bribing attacker* able to successfully "pay any miner exactly $B$ [the block reward] to suppress a valid block whenever the attacker desires”.
