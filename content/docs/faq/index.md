@@ -19,7 +19,7 @@ From 68 bits of min-entropy, originating from the current difficulty $d$, we can
 ### How much would it cost to attack this beacon?
 An attack on the beacon is equivalent to manipulating the block hash of the most recent block. Malicious miners can withhold valid blocks if they would result in an unfavorable beacon output. The paper models a *strong bribing attacker* able to successfully "pay any miner exactly $B$ [the block reward] to suppress a valid block whenever the attacker desires”.
 
-The cost of attack depends on how the beacon is being used. If we let $p$ be the probability that the attacker wins a lottery with value $W$ by doing nothing, then:
+The cost of attack depends on how the beacon is used. If we let $p$ be the probability that the attacker wins a lottery with value $W$ by doing nothing, then:
 
 $$(earnings\ from\ manipulating\ beacon) > (expected\ earnings\ if\ do\ nothing)$$
 $$(lottery\ stake) - (cost\ to\ manipulate\ beacon) > (expected\ earnings\ if\ do\ nothing)$$
@@ -38,7 +38,7 @@ The underlying code is here:
 https://github.com/charlesjlee/bitcoin-beacon
 
 ### Why should I use this instead of random.org, NIST, or drand?
-Because you believe in the great dream of liberating the global financial system from the clutches of central banks and want to pump the price of BTC to the moon so we can all retire.
+Because you believe in the dream of liberating the global financial system from the clutches of central banks and want to pump the price of BTC to the moon so we can all retire.
 
 ### I don't like your code and don't trust you
 I was a Certified Bitcoin Professional back in 2017 and went on to work at a blockchain startup. If you still don't accept my street cred then look [here](https://www.youtube.com/watch?v=dQw4w9WgXcQ).
